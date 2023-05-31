@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>"Temperature Converter"</title>
+    
+    <style>
+
+body{
+    background-color: black;
+    margin-top: 10%;
+    margin-bottom: 0%;
+}
+
+.temp{
+    margin-block: 25px;
+    background-color: rgb(234, 234, 234);
+    width: 80%;
+    height:50%;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+}
+.temperature input{
+    background-color:rgb(251, 214, 64);
+    color: rgb(10, 14, 14);
+    width: 20%;
+    margin-top: 5%;
+    border-radius: 10px;
+} 
+.temperature input:hover{
+    background-color: aqua;
+}
+
+input.in{
+   
+    color: black;
+    width:10%;
+    background-color: rgb(9, 198, 250);
+    text-decoration:rgb(247, 247, 247);
+    text-size-adjust: 10px;
+    outline: 0.5px solid rgb(0, 0, 0)  ;
+    border-radius:10px;
+}
+input.in:hover{
+   background-color: rgb(255, 12, 12) !important;
+}
+
+input#celsius{
+    margin-left: 0%;
+    width:25%;
+    height: 50%;
+    border-radius: 10px;
+}
+input#fahrenheit{
+    width:25%;
+    height: 50%;
+    border-radius: 10px;
+}
+input#kelvin{
+    width:25%;
+    height: 50%;
+    border-radius: 10px;
+}
+    </style>
+    <script>
+        function convertTemperature(){
+            let unit =document.getElementById("tempUnit").value;
+            let temp = parseFloat(document.getElementById("tempInput").value);
+            if (unit === ""  || temp === "")
+            { 
+                alert("Enter the value") ;
+
+            }
+            if(unit ==="fahrenheit")
+            {
+                var C = 5/9 * (temp-32);
+                var K = C + 273.15;
+                var F=parseFloat(temp);
+             }
+             else if (unit ==="celsius")
+             {
+                var F=(9/5 * (temp) + 32);
+                var K= (temp)+273.15;
+                var C=parseFloat(temp);
+            }
+            document.getElementById("fahrenheit").value = F.toFixed(2)
+            document.getElementById("celsius").value = C.toFixed(2);
+            document.getElementById("kelvin").value = K.toFixed(2);
+        }
+        </script>
+    
+</head>
+<body>
+   
+     <section class="temp" id="temp">
+        <div class="tem" id="tem">
+             <h1>TEMPERATURE CONVERTOR</h1>
+             <div class="temperature">
+                <img src="https://images.theconversation.com/files/221950/original/file-20180606-137301-bcluaq.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip" style="width: 50%;border-radius: 10px;">
+                <form >                   
+                   
+
+                    <input type="number" id="tempInput" placeholder="Enter The Temperature" >
+                    <br><br><br>
+
+
+                    <select id="tempUnit" name="tempUnit" aria-placeholder="TEMPERATURE UNIT"> 
+                        
+                        <option value="">Select Unit</option>
+                        <option id="Celsius" value="celsius">&degC</option>
+                        <option id="Fahrenheit" value="fahrenheit">&degF</option>
+                       
+                    </select><br>
+
+                    <input  class="in" type="button" value= "Calculate" onclick="convertTemperature()">
+                  <br><br>  <hr style="width:100%" class="hr1">
+                </form>
+                    <h2>Output</h2>
+                    <div>
+                       
+                        <center>
+
+                      <table>
+                          <thead>
+                            <caption></caption>
+                            <tr> <th> </th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            
+
+                            <td>   <input type="number" id="celsius" readonly  value="C"><label>&degC<h2>Celsius</h2></label>
+                            </td>              
+                            <td>  
+                                <input type="number" id="fahrenheit" readonly value="F"><label>&degF <h2>Fahrenheit</h2></label>
+                            </td>
+                            <td>
+                                <input type="number" id="kelvin" readonly  value="K"><label>&degK<h2>Kelvin</h2></label>
+                   
+                            </td>
+                           
+                            
+                            </tbody>
+                            </table>
+                       
+                      </div>
+                    </center> 
+                        
+                </div>
+            </div>
+ 
+</body>
+</html>
